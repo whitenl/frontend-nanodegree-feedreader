@@ -26,7 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -38,7 +37,6 @@ $(function() {
                expect(feed.url.length).not.toBe(0);
            }
         });
-
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -96,31 +94,27 @@ $(function() {
 
         it('completes its work', function() {
             const feed = document.querySelector('.feed');
-
             expect(feed.children.length > 0).toBe(true);
-            
         });
     });       
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         const feed = document.querySelector('.feed');
         const initialFeed = [];
-/*      * TODO: Write a test that ensures when a new feed is loaded 
-        * by the loadFeed function that the content actually changes.
-        * Remember, loadFeed() is asynchronous.
+        /* TODO: Write a test that ensures when a new feed is loaded 
+        *  by the loadFeed function that the content actually changes.
+        *  Remember, loadFeed() is asynchronous.
         */
         beforeEach(function(done) {
             loadFeed(0);
-            //console.log(feed.children[0].innerText);
             Array.from(feed.children).forEach(function(entry){
                 initialFeed.push(entry.innerText);
             });
 
-            loadFeed(3,done);
+            loadFeed(2,done);
         });
 
         it('content changes when feed loads', function() {
-            //console.log(feed.children[0].innerText);
             Array.from(feed.children).forEach(function(entry,index) {
                 console.log(entry.innerText, initialFeed[index], entry.innerText === initialFeed[index]);
                 expect(entry.innerText === initialFeed[index]).toBe(false);
