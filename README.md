@@ -1,6 +1,6 @@
 # Project Overview
 
-Front end nanodegree Udacity project. Wrote tests against an existing web-based RSS Feed Reader application. Used [Jasmine](http://jasmine.github.io/) 
+Front end nanodegree Udacity project. Wrote tests against an existing web-based RSS Feed Reader application. Used [Jasmine](http://jasmine.github.io/) for testing.
 
 
 ## The following tests were added:
