@@ -72,10 +72,10 @@ $(function() {
             const body = document.querySelector('body');
             const menu = document.querySelector('.menu-icon-link');
 
-            menu.click(); 
+            menu.click(); //toggle menu open
             expect(body.classList.contains('menu-hidden')).toBe(false);
             
-            menu.click();
+            menu.click(); //toggle menu closed
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
     });
@@ -89,12 +89,13 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(0, done); //calls initial feed entries
         });
 
         it('completes its work', function() {
             const feed = document.querySelector('.feed');
-            expect(feed.children.length > 0).toBe(true);
+            //checks for at least a single .entry element within the .feed container. 
+            expect(feed.children.length > 0).toBe(true); 
         });
     });       
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -111,13 +112,14 @@ $(function() {
                 initialFeed.push(entry.innerText);
             });
 
-            loadFeed(2,done);
+            loadFeed(1,done);
         });
 
         it('content changes when feed loads', function() {
             Array.from(feed.children).forEach(function(entry,index) {
                 console.log(entry.innerText, initialFeed[index], entry.innerText === initialFeed[index]);
-                expect(entry.innerText === initialFeed[index]).toBe(false);
+                //compares first and second feeds to confirm content is different
+                expect(entry.innerText === initialFeed[index]).toBe(false); 
             });
         });
     });     
